@@ -7,7 +7,6 @@ from pox.lib.revent import Event, EventMixin
 from pox.openflow.libopenflow_01 import *
 import pox.openflow.libopenflow_01 as of
 from pox.openflow.util import make_type_to_unpacker_table
-from pox.openflow.flow_table import SwitchFlowTable
 from pox.lib.packet import *
 import logging
 
@@ -51,8 +50,7 @@ class FastDiscovery (EventMixin):
   Listen to the discovery component, set up or set down the link based on the portstatus
   """
   _eventMixin_events = set([
-    discovery.LinkEvent,
-    discovery.ExpireLink
+    discovery.LinkEvent
   ])
 
   _core_name = "openflow_discovery" # we want to be core.openflow_discovery
